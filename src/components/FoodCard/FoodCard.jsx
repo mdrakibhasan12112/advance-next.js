@@ -1,8 +1,9 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const FoodCard = ({ food }) => {
- const { image_link, dish_name, category,price } = food;
+ const {id, image_link, dish_name, category,price } = food;
  return (
    <div className="card bg-base-100 shadow-sm">
      <figure>
@@ -21,7 +22,9 @@ const FoodCard = ({ food }) => {
        </p>
        <div className="card-actions justify-end">
          <button className="btn btn-primary">Add To Card</button>
-         <button className="btn btn-ghost">Show Details</button>
+         <Link href={`/foods/${id}`}>
+           <button className="btn btn-ghost">Show Details</button>
+         </Link>
        </div>
      </div>
    </div>
